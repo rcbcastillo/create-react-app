@@ -5,10 +5,10 @@ const TopicsList = ({ topics }) => {
     <ul>
       {topics.map((articleTopic) => (
         <Link
-          key={articleTopic.topic}
-          to={`./Articles/${articleTopic.topic}`}
+          key={articleTopic.slug}
+          to={`./Articles/${articleTopic.slug}`}
         >
-          <li>{articleTopic.topic}</li>
+          <li>{articleTopic.slug}</li>
         </Link>
       ))}
     </ul>
