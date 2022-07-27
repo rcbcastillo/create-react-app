@@ -6,7 +6,7 @@ const TopicsList = ({ topics }) => {
       {topics.map((articleTopic) => (
         <Link
           key={articleTopic.slug}
-          to={`./Articles/${articleTopic.slug}`}
+          to={`/Articles/${articleTopic.slug}`}
         >
           <li>{articleTopic.slug}</li>
         </Link>
