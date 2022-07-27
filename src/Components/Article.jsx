@@ -16,12 +16,12 @@ const Article = () => {
     if (article) {
       return (
         <main>
-          <Header title={article.title} />
-          <h3>{article.topic}</h3>
+          <Header title={`Topic: ${article.topic}`} />
           <section>
+            <h3>{article.title}</h3>
             <p>{article.body}</p>
-            <p>{article.author}</p>                   
-            <p>{article.created_at}</p>          
+            <p>{`Author: ${article.author}`}</p>                   
+            <p>{`Posted: ${article.created_at}`}</p>          
           </section>
         </main>
       )

@@ -16,8 +16,8 @@ export const getTopics = () => {
 export const getArticle = (article_id) => {
   return axios
   .get(`https://nc-news-example-2.herokuapp.com/api/articles/${article_id}`)
-  .then(({data}) => {
-    console.log(data)
-    return data;
+  .then(({data:{article}}) => {
+    console.log(article)
+    return article;
   })
 }
