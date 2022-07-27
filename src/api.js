@@ -6,3 +6,13 @@ export const getArticles = (topics) => {
     .then(({data:{articles}}) => articles);
 };
 
+
+export const getTopics = () => {
+  return axios
+    .get("https://nc-news-example-2.herokuapp.com/api/topics")
+    .then(({data}) => {
+      console.log(data)
+      return data;
+    });
+};
+
