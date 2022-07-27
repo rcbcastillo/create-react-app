@@ -10,9 +10,9 @@ export const getArticles = (topics) => {
 export const getTopics = () => {
   return axios
     .get("https://nc-news-example-2.herokuapp.com/api/topics")
-    .then(({data}) => {
-      console.log(data)
-      return data;
+    .then(({data:{topics}}) => {
+      console.log(topics)
+      return topics;
     });
 };
 
