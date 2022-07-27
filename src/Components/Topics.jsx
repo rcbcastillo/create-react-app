@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-//import {useParams} from 'react-router-dom';
 import {Header} from './Header';
 import { getTopics } from '../api';
 import TopicsList from './TopicsList';
