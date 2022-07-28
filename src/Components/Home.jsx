@@ -1,7 +1,5 @@
-import {Header} from './Header'
+import { Header } from "./Header";
 
-export const Home = ()=> {
-  return (
-    <Header title={'Home'}/>
-  )
-}
+export const Home = () => {
+  return <Header title={"Welcome to the NCN"} />;
+};
