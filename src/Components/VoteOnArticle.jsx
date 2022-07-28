@@ -6,7 +6,7 @@ const VoteOnArticle = ({ votes }) => {
   const [articleVotes, setArticleVotes] = useState(0);
   const [buttonAddVotesDisabled, setButtonAddVotesDisabled] = useState(false);
   const [buttonDeleteVotesDisabled, setButtonDeleteVotesDisabled] =
-    useState(false);
+    useState(true);
   const [error, setError] = useState(null);
   const { article_id } = useParams();
 
@@ -14,6 +14,7 @@ const VoteOnArticle = ({ votes }) => {
 
   const handleAddVotesonArticle = (change) => {
     setButtonAddVotesDisabled(true);
+    setButtonDeleteVotesDisabled(false);
     setArticleVotes((currVotes) => currVotes + change);
     patchVotesOnArticle(article_id, { inc_votes: change }).catch(() => {
       setError("This page is not working now.Try later!");
@@ -22,7 +23,7 @@ const VoteOnArticle = ({ votes }) => {
 
   const handleDeleteVotesonArticle = (change) => {
     setButtonDeleteVotesDisabled(true);
-    setArticleVotes((currVotes) => currVotes + change);
+    setArticleVotes((currVotes) => currVotes - change);
     patchVotesOnArticle(article_id, { inc_votes: change }).catch(() => {
       setError("This page is not working now.Try later!");
     });
@@ -40,7 +41,7 @@ const VoteOnArticle = ({ votes }) => {
       </button>
       <button
         disabled={buttonDeleteVotesDisabled}
-        onClick={totalVotes > 0 ? () => handleDeleteVotesonArticle(-1) : 0}
+        onClick={totalVotes > 0 ? () => handleDeleteVotesonArticle(1) : 0}
       >
         Delete votes
       </button>
