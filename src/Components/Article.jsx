@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "./Header";
 import { getArticle } from "../api";
-import VoteOnArticle from "./VoteOnArticle";
 
 const Article = () => {
   const [article, setArticle] = useState();
@@ -21,7 +20,6 @@ const Article = () => {
           <p>{article.body}</p>
           <p>{`Author: ${article.author}`}</p>
           <p>{`Posted: ${article.created_at}`}</p>
-          <VoteOnArticle votes={article.votes} />
         </section>
       </main>
     );
