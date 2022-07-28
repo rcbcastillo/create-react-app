@@ -4,9 +4,9 @@ const TopicsList = ({ topics }) => {
   return (
     <ul>
       {topics.map((articleTopic) => (
-        <Link key={articleTopic.slug} to={`/Articles/${articleTopic.slug}`}>
-          <li>{articleTopic.slug}</li>
-        </Link>
+        <li key={articleTopic.slug}>
+          <Link to={`/Articles/${articleTopic.slug}`}>{articleTopic.slug}</Link>
+        </li>
       ))}
     </ul>
   );
