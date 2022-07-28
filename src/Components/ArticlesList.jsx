@@ -5,12 +5,10 @@ const ArticlesList = ({ articles }) => {
     <div>
       <ul>
         {articles.map((article) => (
-          <li>
-            <Link
-              key={article["article_id"]}
-              to={`/article/${article["article_id"]}`}
-            ></Link>
-            {article.title}
+          <li key={article["article_id"]}>
+            <Link to={`/article/${article["article_id"]}`}>
+              {article.title}
+            </Link>
           </li>
         ))}
       </ul>
