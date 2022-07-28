@@ -6,6 +6,7 @@ const VoteOnArticle = ({ votes }) => {
   const [articleVotes, setArticleVotes] = useState(0);
   const { article_id } = useParams();
   const [error, setError] = useState(null);
+  let totalVotes = votes + articleVotes;
 
   const handleVotesonArticle = (increment) => {
     setArticleVotes((currVotes) => currVotes + increment);
@@ -20,8 +21,10 @@ const VoteOnArticle = ({ votes }) => {
   return (
     <div id="vote-article">
       <button onClick={() => handleVotesonArticle(1)}>Add votes</button>
-      <button onClick={() => handleVotesonArticle(-1)}>Delete votes</button>
-      <p>This article has {votes + articleVotes} votes</p>
+      <button onClick={totalVotes > 0 ? () => handleVotesonArticle(-1) : 0}>
+        Delete votes
+      </button>
+      <p>This article has {totalVotes} votes</p>
     </div>
   );
 };
