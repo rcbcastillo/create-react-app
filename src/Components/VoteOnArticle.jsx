@@ -4,23 +4,30 @@ import { patchVotesOnArticle } from "../api";
 
 const VoteOnArticle = ({ votes }) => {
   const [articleVotes, setArticleVotes] = useState(0);
-  const { article_id } = useParams();
+  const [buttonAddVotesDisabled, setButtonAddVotesDisabled] = useState(false);
   const [error, setError] = useState(null);
+  const { article_id } = useParams();
+
   let totalVotes = votes + articleVotes;
 
-  const handleVotesonArticle = (increment) => {
-    setArticleVotes((currVotes) => currVotes + increment);
-    patchVotesOnArticle(article_id, { inc_votes: increment }).catch((err) => {
+  const handleVotesonArticle = (change) => {
+    setButtonAddVotesDisabled(true);
+    setArticleVotes((currVotes) => currVotes + change);
+    patchVotesOnArticle(article_id, { inc_votes: change }).catch(() => {
       setError("This page is not working now.Try later!");
     });
   };
 
-  if (error) {
-    return <p>{error}</p>;
-  }
+  if (error) return <p>{error}</p>;
+
   return (
     <div id="vote-article">
-      <button onClick={() => handleVotesonArticle(1)}>Add votes</button>
+      <button
+        disabled={buttonAddVotesDisabled}
+        onClick={() => handleVotesonArticle(1)}
+      >
+        Add votes
+      </button>
       <button onClick={totalVotes > 0 ? () => handleVotesonArticle(-1) : 0}>
         Delete votes
       </button>
