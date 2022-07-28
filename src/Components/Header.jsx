@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button';
 import Navigation  from './Navigation';
 
 export const Header = ({ title }) => {
@@ -9,7 +8,6 @@ export const Header = ({ title }) => {
         <Navigation/>
         <div className="hero">
           <h1> {title}</h1>
-          <Button className="btn" title="See comments from users" >See comments from users</Button>
         </div>
       </header>     
     </div>
