@@ -16,3 +16,14 @@ export const getTopics = () => {
     });
 };
 
+export const getArticle = (article_id) => {
+  return axios
+  .get(`https://nc-news-example-2.herokuapp.com/api/articles/${article_id}`)
+  .then(({data:{article}}) => article);
+};
+
+export const patchVotesOnArticle = (article_id, votesToUpdate) => {
+  return axios
+  .patch(`https://nc-news-example-2.herokuapp.com/api/articles/${article_id}`, votesToUpdate)
+  .then (({data:{article}}) => article.votes)
+}
