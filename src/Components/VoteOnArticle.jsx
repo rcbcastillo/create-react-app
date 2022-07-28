@@ -8,7 +8,9 @@ const VoteOnArticle = ({ votes }) => {
 
   const handleVotesonArticle = (increment) => {
     setArticleVotes((currVotes) => currVotes + increment);
-    patchVotesOnArticle(article_id, { inc_votes: increment });
+    patchVotesOnArticle(article_id, { inc_votes: increment }).catch((error) =>
+      console.log("This page is not working now.Try later!")
+    );
   };
 
   return (
