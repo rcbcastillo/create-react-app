@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Header } from "./Header";
 import { getArticle } from "../api";
 import VoteOnArticle from "./VoteOnArticle";
+import Comments from "./Comments";
 
 const Article = () => {
   const [article, setArticle] = useState();
