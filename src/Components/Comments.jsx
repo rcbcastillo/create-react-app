@@ -12,13 +12,13 @@ const Comments = () => {
 
   if (comments) {
     return (
-      <ul>
+      <div>
         {comments.map((articleComments, key) => (
           <p
             key={key}
           >{`${articleComments.author}: ${articleComments.body}`}</p>
         ))}
-      </ul>
+      </div>
     );
   }
 };
