@@ -20,6 +20,7 @@ const Comments = () => {
       <div className="comments">
         <div className="form-title">Write comment</div>
         <CommentForm submitLabel="Write" handleSubmit={addComment} />
+        <h4>Comments: </h4>
         <div className="comments-container">
           {comments.map((articleComments, key) => (
             <p
