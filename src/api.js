@@ -29,3 +29,12 @@ export const getArticleComments = (article_id) => {
   .get(`https://nc-news-example-2.herokuapp.com/api/articles/${article_id}/comments`, { params: { 'sort_by': "created_at", 'order': 'desc'} })
   .then(({data:{comments}}) => comments)
 }
+
+export const postArticleComment = (article_id, dataToSend) => {
+  return axios
+    .post(`https://nc-news-example-2.herokuapp.com/api/articles/${article_id}/comments`, dataToSend)
+    .then((response) => {
+      console.log(response, "<<--in the addComment");
+      return response.data;
+    });
+}
