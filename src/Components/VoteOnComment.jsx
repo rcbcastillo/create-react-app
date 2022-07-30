@@ -1,30 +1,56 @@
 import { useState } from "react";
-//import { useParams } from "react-router-dom";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
-//import { patchVotesOnComment } from "../api";
+import { patchVotesOnComment } from "../api";
 
-const VoteOnComment = () => {
+const VoteOnComment = ({ votes, commentId }) => {
   const [likeComment, setLikeComment] = useState(0);
-  //   const [commentVotes, setCommentsVotes] = useState([]);
-  //   const { comment_id } = useParams();
-  //   let totalVotes = likeComment;
+  const [likeDisabled, setLikeDisabled] = useState(false);
+  const [unlikeDisabled, setUnlikeDisabled] = useState(false);
+  const [error, setError] = useState(null);
 
-  // patchVotesOnComment(comment_id, { inc_votes: increment }).catch(() => {
-  //   setError("This page is not working now.Try later!");
-  // });
+  let totalVotes = likeComment + votes;
 
   const handleVotesonComment = (increment) => {
     setLikeComment((currVotes) => currVotes + increment);
   };
 
+  const onClickLikeBtn = () => {
+    handleVotesonComment(1);
+    setLikeDisabled(true);
+    patchVotesOnComment(commentId, { inc_votes: 1 }).catch(() =>
+      setError("This option is not available. Try later!")
+    );
+  };
+
+  const onClickUnlikeBtn = () => {
+    handleVotesonComment(-1);
+    setUnlikeDisabled(true);
+    patchVotesOnComment(commentId, { inc_votes: -1 });
+  };
+
+  if (error) {
+    return <p>{error}</p>;
+  }
   return (
     <div className="comment-votes">
       <div className="comment-votes-item">
-        <FiThumbsUp onClick={() => handleVotesonComment(1)} />
+        <button
+          className="comment-votes-icon"
+          disabled={likeDisabled}
+          onClick={() => onClickLikeBtn()}
+        >
+          <FiThumbsUp />
+        </button>
       </div>
-      <div className="ccomment-votes-item">{likeComment}</div>
+      <div className="comment-votes-item">{totalVotes}</div>
       <div className="comment-votes-item">
-        <FiThumbsDown onClick={() => handleVotesonComment(-1)} />
+        <button
+          className="comment-votes-icon"
+          onClick={likeComment ? () => onClickUnlikeBtn() : null}
+          disabled={unlikeDisabled}
+        >
+          <FiThumbsDown />
+        </button>
       </div>
     </div>
   );

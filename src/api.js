@@ -32,9 +32,9 @@ export const getArticleComments = (article_id) => {
 
 export const patchVotesOnComment = (comment_id, votesToUpdate) => {
   return axios
-  .patch(`https://nc-news-example-2.herokuapp.com/comments/${comment_id}`, votesToUpdate)
-  .then(({data:{comments}}) => {
-    console.log(comments.votes)
-    return comments.votes;
+  .patch(`https://nc-news-example-2.herokuapp.com/api/comments/${comment_id}`, votesToUpdate)
+  .then(({data:{comment}}) => {
+    console.log(comment.votes)
+    return comment.votes;
   })
 }

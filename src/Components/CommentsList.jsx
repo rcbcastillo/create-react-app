@@ -35,7 +35,10 @@ const CommentsList = ({ comments }) => {
           <div className="comment-body">
             <div className="comment-body">{articleComments.body}</div>
           </div>
-          <VoteOnComment votes={articleComments.votes} />
+          <VoteOnComment
+            votes={articleComments.votes}
+            commentId={articleComments.comment_id}
+          />
         </div>
       ))}
     </div>

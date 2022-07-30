@@ -57,18 +57,34 @@ body {
   
  .comments-username-logo-container {
     display:flex;
+    align-items: center;  
+    flex-wrap: wrap;  
   }
 
-  .comment-username-logo-date {
-    text-align:justify;
-    display: inline-block;  
-    margin: 5px
+  .comment-username-logo-date { 
+    margin: 5px;
+    flex-direction: row;
+    justify-content: flex-start;
   }
 
   #comment-date {
     font-size: 0.8rem;
+    color: rgb(87, 70, 48);
   }
 
   .container-each-comment {
     padding: 15px;
+  }
+
+  .comment-votes {
+    display: flex;
+    margin: 5px;
+    flex-direction:row-reverse;       
+  }
+
+  .comment-votes-item {
+    text-align:justify;
+    display: inline-block;  
+    padding-inline: 5px;
+    
   }
