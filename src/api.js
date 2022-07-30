@@ -30,11 +30,10 @@ export const getArticleComments = (article_id) => {
   .then(({data:{comments}}) => comments)
 }
 
-export const postArticleComment = (article_id, dataToSend) => {
+export const patchVotesOnComment = (comment_id, votesToUpdate) => {
   return axios
-    .post(`https://nc-news-example-2.herokuapp.com/api/articles/${article_id}/comments`, dataToSend)
-    .then((response) => {
-      console.log(response, "<<--in the addComment");
-      return response.data;
-    });
+  .patch(`https://nc-news-example-2.herokuapp.com/api/comments/${comment_id}`, votesToUpdate)
+  .then(({data:{comment}}) => {
+    return comment.votes;
+  })
 }

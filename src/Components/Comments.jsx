@@ -1,33 +1,24 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleComments } from "../api";
-import CommentForm from "./CommentForm";
+import CommentsList from "./CommentsList";
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
+  const [showComments, setShowComments] = useState(false);
   const { article_id } = useParams();
 
   useEffect(() => {
     getArticleComments(article_id).then((comments) => setComments(comments));
   }, [article_id]);
 
-  const addComment = (text, article_id) => {
-    console.log("addComment:", text, article_id);
-  };
-
   if (comments) {
     return (
-      <div className="comments">
-        <div className="form-title">Write comment</div>
-        <CommentForm submitLabel="Write" handleSubmit={addComment} />
-        <h4>Comments: </h4>
-        <div className="comments-container">
-          {comments.map((articleComments, key) => (
-            <p
-              key={key}
-            >{`${articleComments.author}: ${articleComments.body}`}</p>
-          ))}
-        </div>
+      <div className="comments-onclick">
+        <button onClick={() => setShowComments((current) => !current)}>
+          {showComments ? "Hide comments" : "See comments"}
+        </button>
+        {showComments ? <CommentsList comments={comments} /> : null}
       </div>
     );
   }

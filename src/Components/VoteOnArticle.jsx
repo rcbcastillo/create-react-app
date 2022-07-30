@@ -40,7 +40,7 @@ const VoteOnArticle = ({ votes }) => {
       </button>
       <button
         disabled={buttonDeleteVotesDisabled}
-        onClick={totalVotes > 0 ? () => handleDeleteVotesonArticle(1) : 0}
+        onClick={totalVotes > 0 ? () => handleDeleteVotesonArticle(1) : null}
       >
         Unlike
       </button>
