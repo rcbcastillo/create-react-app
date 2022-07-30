@@ -29,3 +29,12 @@ export const getArticleComments = (article_id) => {
   .get(`https://nc-news-example-2.herokuapp.com/api/articles/${article_id}/comments`, { params: { 'sort_by': "created_at", 'order': 'desc'} })
   .then(({data:{comments}}) => comments)
 }
+
+export const patchVotesOnComment = (comment_id, votesToUpdate) => {
+  return axios
+  .patch(`https://nc-news-example-2.herokuapp.com/comments/${comment_id}`, votesToUpdate)
+  .then(({data:{comments}}) => {
+    console.log(comments.votes)
+    return comments.votes;
+  })
+}
