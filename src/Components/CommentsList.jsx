@@ -15,12 +15,13 @@ const CommentsList = ({ comments }) => {
     return yearsSinceCommentPosted;
   };
 
-  // const handleAddVotesonComment = (increment) => {
-  //   setLikeComment((currVotes) => currVotes + increment);
-  //   patchVotesOnComments(comment_id, { inc_votes: increment }).catch(() => {
-  //     setError("This page is not working now.Try later!");
-  //   });
-  // };
+  const handleVotesonComment = (increment) => {
+    setLikeComment((currVotes) => currVotes + increment);
+  };
+
+  // patchVotesOnComments(comment_id, { inc_votes: increment }).catch(() => {
+  //   setError("This page is not working now.Try later!");
+  // });
 
   return (
     <div className="comments-container">
@@ -47,11 +48,11 @@ const CommentsList = ({ comments }) => {
           </div>
           <div className="comment-votes">
             <div className="comment-votes-item">
-              <FiThumbsUp />
+              <FiThumbsUp onClick={() => handleVotesonComment(1)} />
             </div>
-            <div className="ccomment-votes-item">{articleComments.votes}</div>
+            <div className="ccomment-votes-item">{likeComment}</div>
             <div className="comment-votes-item">
-              <FiThumbsDown />
+              <FiThumbsDown onClick={() => handleVotesonComment(-1)} />
             </div>
           </div>
         </div>
