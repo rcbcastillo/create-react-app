@@ -21,9 +21,8 @@ const Article = () => {
           <h3>{article.title}</h3>
           <p>{article.body}</p>
           <p>{`Author: ${article.author}`}</p>
-          <p>{`Posted: ${article.created_at}`}</p>
+          <p>{`Posted: ${Date(article.created_at)}`}</p>
           <VoteOnArticle votes={article.votes} />
-          <h4 className="comments">Comments:</h4>
           <Comments />
         </section>
       </main>
