@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleComments } from "../api";
+import CommentsList from "./CommentsList";
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
+  const [showComments, setShowComments] = useState(false);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -12,12 +14,11 @@ const Comments = () => {
 
   if (comments) {
     return (
-      <div>
-        {comments.map((articleComments, key) => (
-          <p
-            key={key}
-          >{`${articleComments.author}: ${articleComments.body}`}</p>
-        ))}
+      <div className="comments-onclick">
+        <button onClick={() => setShowComments((current) => !current)}>
+          {showComments ? "Hide comments" : "See comments"}
+        </button>
+        {showComments ? <CommentsList comments={comments} /> : null}
       </div>
     );
   }
