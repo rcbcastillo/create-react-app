@@ -4,6 +4,7 @@ import Articles from "./Components/Articles";
 import { Home } from "./Components/Home";
 import Topics from "./Components/Topics";
 import Article from "./Components/Article";
+import Comments from "./Components/Comments";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/articles/:topic" element={<Articles />}></Route>
           <Route path="/topics" element={<Topics />}></Route>
           <Route path="/article/:article_id" element={<Article />}></Route>
+          <Route path="/comments/:comment_id" element={<Comments />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
