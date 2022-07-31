@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ArticlesByTopic from "./ArticlesByTopic";
 
 const DropDownList = () => {
   const options = [

@@ -1,5 +1,5 @@
-import { Header } from "./Header";
-import DropDownList from "./DropDownList";
+//import { Header } from "./Header";
+//import DropDownList from "./DropDownList";
 import { useSearchParams } from "react-router-dom";
 
 const SearchArticles = () => {
@@ -20,12 +20,12 @@ const SearchArticles = () => {
   };
 
   return (
-    <div className="-container">
-      <div>
+    <div className="articles-container">
+      {/* <div>
         <Header title={"Topic"} />
         <DropDownList className="sortby-articles" />
         <p>{"What should I do?"}</p>
-      </div>
+      </div> */}
       <div id="articles-search-container">
         <input
           value={searchParams.keyword}
