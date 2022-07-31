@@ -2,10 +2,15 @@ import { Link } from "react-router-dom";
 
 const TopicsList = ({ topics }) => {
   return (
-    <ul>
-      {topics.map((articleTopic) => (
-        <li key={articleTopic.slug}>
-          <Link to={`/Articles/${articleTopic.slug}`}>{articleTopic.slug}</Link>
+    <ul className="list-topics">
+      {topics.map((articleTopic, key) => (
+        <li key={key}>
+          <div>
+            <Link to={`/Articles/${articleTopic.slug}`}>
+              {articleTopic.slug}
+            </Link>
+          </div>
+          <div>{articleTopic.description}...</div>
         </li>
       ))}
     </ul>
