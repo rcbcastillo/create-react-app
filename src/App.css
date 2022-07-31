@@ -92,3 +92,8 @@ body {
     padding-inline: 5px;
     
   }
+
+  .sortby-container {
+    display:flex;
+    flex-direction: row-reverse;
+  }
