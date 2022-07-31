@@ -1,12 +1,29 @@
-const DropListComments = () => {
+import { useState } from "react";
+import ArticlesByTopic from "./ArticlesByTopic";
+
+const DropDownList = () => {
+  const options = [
+    { label: "Title", value: "title" },
+    { label: "Posted", value: "created_at" },
+    { label: "Topics", value: "topics" },
+    { label: "Votes number", value: "votes" },
+  ];
+
+  const [value, setValue] = useState("");
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
   return (
     <div className="sortby-container">
-      <div className="sortby-container-items">
-        <select>
-          <option value="title">Title</option>
-          <option value="created_at">Posted</option>
-          <option value="topics">Topics</option>
-          <option value="votes">Votes number</option>
+      <div>
+        <select value={value} onChange={handleChange}>
+          {options.map((option, key) => (
+            <option key={key} value={option.value}>
+              {option.label}
+            </option>
+          ))}
         </select>
       </div>
       <div>
@@ -16,4 +33,4 @@ const DropListComments = () => {
   );
 };
 
-export default DropListComments;
+export default DropDownList;

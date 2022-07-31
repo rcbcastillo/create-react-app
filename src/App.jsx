@@ -4,7 +4,7 @@ import ArticlesByTopic from "./Components/ArticlesByTopic";
 import { Home } from "./Components/Home";
 import Topics from "./Components/Topics";
 import Article from "./Components/Article";
-import Articles from "./Components/Articles";
+import SearchArticles from "./Components/SearchArticles";
 import Comments from "./Components/Comments";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/articles" element={<Articles />}></Route>
+          <Route path="/articles" element={<SearchArticles />}></Route>
           <Route path="/articles/:topic" element={<ArticlesByTopic />}></Route>
           <Route path="/topics" element={<Topics />}></Route>
           <Route path="/article/:article_id" element={<Article />}></Route>

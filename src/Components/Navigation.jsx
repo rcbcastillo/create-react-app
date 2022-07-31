@@ -11,7 +11,7 @@ const Navigation = () => {
           </Link>
         </li>
         <li>
-          <Link className="nav-link" to="/articles" aria-hidden="true">
+          <Link className="nav-link" to="/topics" aria-hidden="true">
             {<FaBookOpen />} Articles
           </Link>
         </li>
