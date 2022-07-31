@@ -54,6 +54,10 @@ body {
     background-color: #e46eb552;
     color:#555;
   }
+
+  .list-topics {
+    list-style: none;
+  }
   
  .comments-username-logo-container {
     display:flex;

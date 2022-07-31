@@ -34,7 +34,12 @@ export const patchVotesOnComment = (comment_id, votesToUpdate) => {
   return axios
   .patch(`https://nc-news-example-2.herokuapp.com/api/comments/${comment_id}`, votesToUpdate)
   .then(({data:{comment}}) => {
-    console.log(comment.votes)
     return comment.votes;
   })
+}
+
+export const postArticleComment = (article_id, dataToSend) => {
+  return axios
+    .post(`https://nc-news-example-2.herokuapp.com/api/articles/${article_id}/comments`, dataToSend)
+    .then(({data}) => data);
 }
