@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Header } from "./Header";
 import { getArticlesByTopic } from "../api";
 import ArticlesList from "./ArticlesList";
-import SearchArticles from "./SearchArticles";
+import SortByArticles from "./SortByArticles";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -17,7 +17,7 @@ const Articles = () => {
     return (
       <main>
         <Header title={`Topic: ${topic}`} />
-        <SearchArticles />
+        <SortByArticles />
         <section>
           <ArticlesList articles={articles} />
         </section>
