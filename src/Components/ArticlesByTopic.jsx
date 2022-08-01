@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "./Header";
-import { getArticles } from "../api";
+import { getArticlesByTopic } from "../api";
 import ArticlesList from "./ArticlesList";
 import SearchArticles from "./SearchArticles";
 
@@ -10,7 +10,7 @@ const Articles = () => {
   const { topic } = useParams();
 
   useEffect(() => {
-    getArticles(topic).then((articles) => setArticles(articles));
+    getArticlesByTopic(topic).then((articles) => setArticles(articles));
   }, [topic]);
 
   if (articles) {
