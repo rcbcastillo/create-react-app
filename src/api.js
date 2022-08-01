@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getArticles = (topics) => {
+export const getArticlesByTopic = (topics) => {
   return axios
     .get(`https://nc-news-example-2.herokuapp.com/api/articles?topic=${topics}`)
     .then(({data:{articles}}) => articles)
