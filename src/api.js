@@ -2,37 +2,37 @@ import axios from 'axios';
 
 export const getArticlesByTopic = (topics) => {
   return axios
-    .get(`postgres://pfbeswmq:FuZUkui2ebErtZc33i5zEcLwgZBT-wWI@mel.db.elephantsql.com/api/articles?topic=${topics}`)
+    .get(`x/api/articles?topic=${topics}`)
     .then(({data:{articles}}) => articles)
 };
 
 export const getTopics = () => {
   return axios
-    .get("postgres://pfbeswmq:FuZUkui2ebErtZc33i5zEcLwgZBT-wWI@mel.db.elephantsql.com/api/topics")
+    .get("x/api/topics")
     .then(({data:{topics}}) => topics)
 };
 
 export const getArticle = (article_id) => {
   return axios
-  .get(`postgres://pfbeswmq:FuZUkui2ebErtZc33i5zEcLwgZBT-wWI@mel.db.elephantsql.com/api/articles/${article_id}`)
+  .get(`x/api/articles/${article_id}`)
   .then(({data:{article}}) => article)
 };
 
 export const patchVotesOnArticle = (article_id, votesToUpdate) => {
   return axios
-  .patch(`postgres://pfbeswmq:FuZUkui2ebErtZc33i5zEcLwgZBT-wWI@mel.db.elephantsql.com/api/articles/${article_id}`, votesToUpdate)
+  .patch(`x/api/articles/${article_id}`, votesToUpdate)
   .then (({data:{article}}) => article.votes)  
 }
 
 export const getArticleComments = (article_id) => {
   return axios
-  .get(`postgres://pfbeswmq:FuZUkui2ebErtZc33i5zEcLwgZBT-wWI@mel.db.elephantsql.com/api/articles/${article_id}/comments`, { params: { 'sort_by': "created_at", 'order': 'desc'} })
+  .get(`x/api/articles/${article_id}/comments`, { params: { 'sort_by': "created_at", 'order': 'desc'} })
   .then(({data:{comments}}) => comments)
 }
 
 export const patchVotesOnComment = (comment_id, votesToUpdate) => {
   return axios
-  .patch(`postgres://pfbeswmq:FuZUkui2ebErtZc33i5zEcLwgZBT-wWI@mel.db.elephantsql.com/api/comments/${comment_id}`, votesToUpdate)
+  .patch(`x/api/comments/${comment_id}`, votesToUpdate)
   .then(({data:{comment}}) => {
     return comment.votes;
   })
@@ -40,6 +40,6 @@ export const patchVotesOnComment = (comment_id, votesToUpdate) => {
 
 export const postArticleComment = (article_id, dataToSend) => {
   return axios
-    .post(`postgres://pfbeswmq:FuZUkui2ebErtZc33i5zEcLwgZBT-wWI@mel.db.elephantsql.com/api/articles/${article_id}/comments`, dataToSend)
+    .post(`x/api/articles/${article_id}/comments`, dataToSend)
     .then(({data}) => data);
 }
